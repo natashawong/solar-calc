@@ -52,29 +52,34 @@ import submit from '../reducers/submit'
 const FinalValue = () => {
     return (
         <div>
-            <button type="button" onClick={() => submit()}>Submit</button>
-            <h1>{this.props.finalValue}</h1>
+            <button type="button" onClick={this.props.submitAll}>Submit</button>
+            <h1>{this.props.showFinal}</h1>
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
-    return {
-      roof_size: state.addInfo.roof_size,
-      avg_bill: state.addInfo.avg_bill,
-      finalValue: state.submit.finalValue
-    };
+      const roof_size = state.addInfo.roof_size,
+      const avg_bill = state.addInfo.avg_bill,
+      const finalValue = state.submit.finalValue
+      
+      const submitAll = submit(roof_size, avg_bill)
+      const showFinal = finalValue
+
+      return {
+        submitAll, showFinal
+      }
   };
 
 // why is mergeprops so hard to use :/
 
-  const mapDispatchToProps = dispatch => {
-    return {
-      submit: (roof_size, avg_bill) => { dispatch(submit(roof_size, avg_bill)) }
-    };
-  };
+  // const mapDispatchToProps = dispatch => {
+  //   return {
+  //     submit: (roof_size, avg_bill) => { dispatch(submit(roof_size, avg_bill)) }
+  //   };
+  // };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FinalValue)
+export default connect(mapStateToProps)(FinalValue)
 
 // const mapStateToProps = (state) => {
 //     return{
