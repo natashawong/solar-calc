@@ -49,27 +49,28 @@ import React from 'react'
 import { connect } from 'react-redux'
 import submit from '../reducers/submit'
 
-const FinalValue = () => {
+const FinalValue = ({submitAll}) => {
     return (
         <div>
-            <button type="button" onClick={this.props.submitAll}>Submit</button>
+            <button type="button" onClick={submitAll}>Submit</button>
             <h1>{this.props.showFinal}</h1>
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
-      const roof_size = state.addInfo.roof_size,
-      const avg_bill = state.addInfo.avg_bill,
-      const finalValue = state.submit.finalValue
-      
-      const submitAll = submit(roof_size, avg_bill)
-      const showFinal = finalValue
-
-      return {
-        submitAll, showFinal
-      }
+  return {
+      roof_size: state.addInfo.roof_size,
+      avg_bill: state.addInfo.avg_bill,
+      finalValue: state.submit.finalValue
+  }
   };
+
+  const mapDispatchToProps = dispatch => {
+    return {
+      submitAll: () => dispatch(submit(this.props.roof_size, this.props.avg_bill))
+    }
+  }
 
 // why is mergeprops so hard to use :/
 
@@ -79,7 +80,7 @@ const mapStateToProps = (state) => {
   //   };
   // };
 
-export default connect(mapStateToProps)(FinalValue)
+export default connect(mapStateToProps, mapDispatchToProps)(FinalValue)
 
 // const mapStateToProps = (state) => {
 //     return{
