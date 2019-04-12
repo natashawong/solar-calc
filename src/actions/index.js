@@ -8,6 +8,9 @@ export const enterAvgBill = avg_bill => ({
     avg_bill
 })
 
-export const submit = () => ({
-    type: 'SUBMIT'
+export const submit = (avg_bill, roof_size, finalValue) => ({
+    type: 'SUBMIT',
+    avg_bill,
+    roof_size,
+    finalValue
 })

@@ -1,8 +1,15 @@
-import { combineReducers } from 'redux'
-import addinfo from './addinfo'
-import calculations from './calculations'
+import { combineReducers, createStore } from 'redux'
+import addInfo from './addInfo'
+import submit from './submit'
 
-export default combineReducers({
-  addinfo,
-  calculations
-})
+const rootReducer = combineReducers({
+  addInfo,
+  submit
+}) 
+
+const store = createStore(addInfo, submit)
+
+export {
+  rootReducer,
+  store
+}

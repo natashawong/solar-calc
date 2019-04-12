@@ -16,7 +16,6 @@ const InfoFields = ({dispatch}) => {
                         return
                     }
                     dispatch(enterRoofSize(input.value))
-                    input.value = ''
                 }}
             >
                 <input ref={node => (input = node)} />
@@ -33,7 +32,6 @@ const InfoFields = ({dispatch}) => {
                         return
                     }
                     dispatch(enterAvgBill(input.value))
-                    input.value = ''
                 }}
             >
                 <input ref={node => (input = node)} />
