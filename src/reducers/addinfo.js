@@ -6,24 +6,10 @@ const initialState = {
 
 const addInfo = (state=initialState, action) => {
     switch(action.type) {
-        case 'ENTER_ROOF_SIZE':
-            return [
-                state,
-                {
-                    roof_size: action.integer,
-                    completed: true
-                }
-            ]
-        case 'ENTER_AVG_BILL':
-            return [
-                state,
-                {
-                    avg_bill: action.integer,
-                    completed: true
-                }
-            ]
-        default:
-            return state
+        case 'SUBMIT_INFO':
+            console.log(action.payload) // TODO:
+            return Object.assign({}, state, action.payload);
+        default: return state;
     }
 }
 

@@ -1,12 +1,10 @@
 import React from 'react'
-import InfoFields from './components/infoField'
-import FinalValue from './components/finalValue'
+import FullPage from './components/fullPage'
 
 const App = () => (
     <div>
     <h1>Roberts Environmental Center Solar Calculator</h1>
-      <InfoFields/>
-      <FinalValue/>
+      <FullPage/>
     </div>
 )
 
