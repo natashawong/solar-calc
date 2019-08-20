@@ -1,14 +1,8 @@
-import { createStore, applyMiddleware } from 'redux'
-import createSagaMiddleware from 'redux-saga'
+import { createStore } from 'redux'
 
 import addInfo from './addInfo'
-import collectInfoSagaRuntime from '../sagas/collectInfoSagas'
 
 const rootReducer = addInfo
-
-const sagas = {
-  collectInfoSagaRuntime
-}
 
 // // create the saga middleware
 // const sagaMiddleware = createSagaMiddleware()
