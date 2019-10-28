@@ -10,39 +10,45 @@ export default class FullPage extends Component {
         this.state={
             roof_input: 0,
             bill_input: 0,
+            completed: true,
         }
     }
 
     render() {
         return(
             <div>
-                <form onSubmit={this.props.submitInfo(this.state)}>
+                {/* cannot read property of "state" undefined */}
+                <form onSubmit={this.handleSubmit}>
                     <label>Enter roof size: </label>
                     <input 
                         type='number'
                         onChange={(evt) => this.setState({roof_input: evt.target.value})}
                         value={this.state.roof_input}
                     />
-
+                    {console.log(this.state.roof_input)}
                     <label>Enter average electricity bill: </label>
                     <input 
                         type='number'
                         onChange={(evt) => this.setState({bill_input: evt.target.value})}
                         value={this.state.bill_input}
                     />
+                    {console.log(this.state.bill_input)}
+                    <input type='submit' value='Submit'/>
                 </form>
-
-                <button type='submit'>Submit Information</button>
                 <div>{this.props.final_value}</div>
                 {console.log(this.props.final_value)}
             </div>
         )
     }
+
+    handleSubmit() {
+        submitInfo(this.state)
+    }
 }
 
 const mapStateToProps = (state) => {
     return {
-        final_value: finalValueSelector(state) // why is this undefined???
+        final_value: finalValueSelector(state) // why is this undefined?
     }
 }
 

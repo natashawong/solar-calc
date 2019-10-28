@@ -10,6 +10,7 @@ const store = createStore(addInfoReducer)
 render(
   <Provider store={store}>
     <App />
+    {console.log(store.getState())}
   </Provider>,
   document.getElementById('root')
 )
