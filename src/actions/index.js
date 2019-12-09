@@ -1,5 +1,5 @@
 // Action Types
-const SUBMIT_INFO = 'SUBMIT_INFO'
+export const SUBMIT_INFO = 'SUBMIT_INFO'
 
 // Action Creators
 export function submitInfo(payload) { 

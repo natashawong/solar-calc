@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect'
+import { SUBMIT_INFO } from '../actions/index'
 
 const initialState = {
     roof_size: 0,
@@ -8,7 +9,7 @@ const initialState = {
 
 const addInfoReducer = (state=initialState, action) => {
     switch(action.type) {
-        case 'SUBMIT_INFO':
+        case SUBMIT_INFO:
             console.log('action heard' + action.payload)
             return Object.assign({}, state, {
                 roof_size: action.roof_input,
@@ -21,8 +22,8 @@ const addInfoReducer = (state=initialState, action) => {
 
 
 // Selectors
-const roofSizeSelector = state => state.roof_size
-const avgBillSelector = state => state.avg_bill
+const roofSizeSelector = state => parseInt(state.roof_size)
+const avgBillSelector = state => parseInt(state.avg_bill)
 
 export const finalValueSelector = createSelector(
     roofSizeSelector,
