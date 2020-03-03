@@ -10,10 +10,9 @@ const initialState = {
 const addInfoReducer = (state=initialState, action) => {
     switch(action.type) {
         case SUBMIT_INFO:
-            console.log('action heard' + action.payload)
             return Object.assign({}, state, {
-                roof_size: action.roof_input,
-                avg_bill: action.bill_input,
+                roof_size: action.payload.roof_input,
+                avg_bill: action.payload.bill_input,
                 completed: true
             });
         default: return state;

@@ -27,17 +27,17 @@ export class FullPage extends Component {
                         onChange={(evt) => this.setState({roof_input: evt.target.value})}
                         value={this.state.roof_input}
                     />
-                    {console.log('roof size: ' + this.state.roof_input)}
+
                     <label>Enter average electricity bill: </label>
                     <input 
                         type='number'
                         onChange={(evt) => this.setState({bill_input: evt.target.value})}
                         value={this.state.bill_input}
                     />
-                    {console.log('avg_bill: ' + this.state.bill_input)}
                     <input type='submit' value='Submit'/>
+
                 </form>
-                <div>{'yay ' + this.props.final_value}</div>
+                <div>{'Final Value: ' + this.props.final_value}</div>
                 {console.log(this.props.final_value)}
             </div>
         )
