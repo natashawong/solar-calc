@@ -14,7 +14,7 @@ const store = createStore(
   applyMiddleware(sagaMiddleware)
   )
 
-sagaMiddleware.run(/*my middleware*/)
+// sagaMiddleware.run(/*my middleware*/)
 
 render(
   <Provider store={store}>

@@ -10,6 +10,7 @@ export class FullPage extends Component {
         this.state={
             roof_input: 0,
             bill_input: 0,
+            city_input: "",
             completed: true,
         }
     }
@@ -34,11 +35,17 @@ export class FullPage extends Component {
                         onChange={(evt) => this.setState({bill_input: evt.target.value})}
                         value={this.state.bill_input}
                     />
+
+                    <label>Enter your city: </label>
+                    <input 
+                        type='string'
+                        onChange={(evt) => this.setState({city_input: evt.target.value})}
+                        value={this.state.city_input}
+                    />
                     <input type='submit' value='Submit'/>
 
                 </form>
                 <div>{'Final Value: ' + this.props.final_value}</div>
-                {console.log(this.props.final_value)}
             </div>
         )
     }
@@ -46,7 +53,8 @@ export class FullPage extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        final_value: finalValueSelector(state)
+        final_value: finalValueSelector(state),
+        // test_weather: weatherSelector(state)
     }
 }
 
